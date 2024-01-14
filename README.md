@@ -1,4 +1,5 @@
-#Likwid Test
+# Likwid Test
+
 The Likwid Test project is developed as part of the interview process for candidates applying for the Full Stack Developer position at Likwid.
 
 - [Getting Started](#getting-started)
