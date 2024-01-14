@@ -21,6 +21,8 @@ The Likwid Test project is developed as part of the interview process for candid
 - [Stitches]() for css in js
 - [Radix UI](https://www.radix-ui.com/) for UI Components primitives base
 - [Framer Motion](https://www.framer.com/motion/) for animation library
+- [Rainbowkit](https://www.rainbowkit.com/) wallet connection ui library
+- [Wagmi](https://wagmi.sh/) React hook library for Ethereum
 
 ### Backend:
 
