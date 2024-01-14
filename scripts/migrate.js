@@ -69,17 +69,12 @@ const features = [
     "exp": 125
   },
   {
-    "title": "Follow Likwid on X",
-    "description": "Connect your twitter account on Edit Profile page and Follow Likwid on X to get latest update.",
+    "title": "Connect your Twitter",
+    "description": "Connect your twitter account on Edit Profile page.",
     "tasks": [
       {
         "type": "connection",
         "name": "twitter"
-      },
-      {
-        "type": "twitter_follow",
-        "id": "397566282729390110",
-        "user": "@wearelikwid"
       }
     ],
     "exp": 125

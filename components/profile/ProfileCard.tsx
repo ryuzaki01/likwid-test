@@ -114,7 +114,7 @@ const ProfileCard = (props: ProfileCardProps) => {
             {isLoading ? (
               <Skeleton variant="heading" css={{ width: '100%' }} />
             ) : (
-              <Text style="body1" boldest css={{ mr: 4 }}>{`#${profile?.discord_username}`}</Text>
+              <Text style="body1" boldest css={{ mr: 4 }}>{`#${profile?.discord_username || '-'}`}</Text>
             )}
           </Flex>
           <Flex
