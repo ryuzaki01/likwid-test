@@ -1,0 +1,12 @@
+<svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon / 32px / Loader Dark">
+    <path d="M 50 10 A 40 40 0 1 0 90 50" stroke="url(#linear)" stroke-width="10" fill="none" stroke-linecap="round"/>
+</g>
+<defs>
+    <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%" gradientTransform="rotate(10)">
+        <stop offset="10%"   stop-color="#555"/>
+        <stop offset="90%" stop-color="#888" stop-opacity="0.1"/>
+        <stop offset="100%" stop-color="#888" stop-opacity="0"/>
+    </linearGradient>
+</defs>
+</svg>
