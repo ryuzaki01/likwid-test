@@ -66,6 +66,7 @@ Open the .env file in a text editor of your choice and update the following vari
     openssl rand -base64 32
     ```
 - MONGODB_URI: See [Obtaining MongoDB Connection String URI](#obtaining-mongodb-connection-string-uri)
+- NEXT_PUBLIC_WALLET_CONNECT_ID: See [Obtaining WalletConnect Project ID](#obtaining-walletconnect-project-id)
 - UPSTASH_REDIS_REST_TOKEN: See [Obtaining Upstash Redis Token and URL](#obtaining-upstash-redis-token-and-url)
 - UPSTASH_REDIS_REST_URL: See [Obtaining Upstash Redis Token and URL](#obtaining-upstash-redis-token-and-url)
 - DISCORD_CLIENT_ID: See [Obtaining Discord Client ID and Secret](#obtaining-discord-client-id-and-secret)
@@ -77,7 +78,7 @@ Here is an example of how your .env.local file might look:
 ```dotenv
 # App
 NEXT_PUBLIC_HOST_URL=http://localhost:3000
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=5dd18f61f54044c53f0e1ea9d1829b08
+NEXT_PUBLIC_WALLET_CONNECT_ID=5dd18f61f54044c53f0e1ea9d1829b08
 
 # next-auth
 NEXTAUTH_URL=http://localhost:3000
@@ -309,3 +310,42 @@ Open your project's `.env.local` file and ensure the `TWITTER_CONSUMER_KEY` and 
 TWITTER_CONSUMER_KEY=your_twitter_consumer_key
 TWITTER_CONSUMER_SECRET=your_twitter_consumer_secret
 ```
+
+-----
+
+## Obtaining WalletConnect Project ID
+
+When integrating WalletConnect in your application, you need to obtain the Project ID. This is crucial for ensuring secure and reliable connections to cryptocurrency wallets. Follow these steps to obtain the WalletConnect Project ID:
+
+### Step 1: Visit WalletConnect Website
+
+1. Go to the [WalletConnect Website](https://walletconnect.org/).
+2. Navigate to the "Developers" section.
+
+### Step 2: Sign In or Create an Account
+
+1. Sign in with your WalletConnect account or create a new account.
+2. Access the Developer Dashboard.
+
+## Step 3: Create a New Project
+
+1. Click on the "Create New Project" button.
+2. Fill in the required details for your project, including the project name, description, and website URL.
+
+### Step 4: Obtain Project ID
+
+1. After creating the project, you'll be provided with a unique Project ID. This is what you need for integrating WalletConnect into your application.
+2. Copy the Project ID.
+
+### Step 5: Update .env File
+
+Open your project's `.env.local` file and set the `NEXT_PUBLIC_WALLET_CONNECT_ID` variable:
+
+```dotenv
+NEXT_PUBLIC_WALLET_CONNECT_ID=your_wallet_connect_project_id
+```
+
+### Step 6: Update walletconnect.txt
+
+WalletConnect requires a walletconnect.txt file to be available at `./public/.well-known/walletconnect.txt`.
+Create or update this file with the verification code

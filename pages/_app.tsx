@@ -11,7 +11,6 @@ import {mainnet} from "wagmi/chains";
 import {SessionProvider} from 'next-auth/react'
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { publicProvider } from 'wagmi/providers/public'
-import { alchemyProvider } from 'wagmi/providers/alchemy'
 import ToastContextProvider from 'context/ToastContextProvider'
 import nProgress from 'nprogress'
 
@@ -27,12 +26,11 @@ Router.events.on("routeChangeError", nProgress.done);
 Router.events.on("routeChangeComplete", nProgress.done);
 
 const WALLET_CONNECT_PROJECT_ID =
-  process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || ''
+  process.env.NEXT_PUBLIC_WALLET_CONNECT_ID || ''
 
 const { chains, publicClient } = configureChains(
   [mainnet],
   [
-    alchemyProvider({ apiKey: process.env.ALCHEMY_ID as string }),
     publicProvider()
   ]
 );
