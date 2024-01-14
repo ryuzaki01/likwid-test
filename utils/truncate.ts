@@ -2,7 +2,7 @@ function truncateUrl(url: string) {
   return url.slice(0, 15) + '…' + url.slice(-10)
 }
 
-function truncateStr(str: string, length: number = 30, shrinkInidicator?: string) {
+function truncateStr(str: string = '', length: number = 30, shrinkInidicator?: string) {
   return str.length > length ? str.slice(0, length) + (shrinkInidicator || '…') : str
 }
 

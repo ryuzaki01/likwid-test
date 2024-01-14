@@ -102,6 +102,13 @@ DISCORD_CLIENT_ID=
 DISCORD_CLIENT_SECRET=
 ```
 
+## Running Migration
+
+to fill the data with predefined tasks run:
+```bash
+yarn migrate
+```
+
 ## Running Server
 
 run the development server:

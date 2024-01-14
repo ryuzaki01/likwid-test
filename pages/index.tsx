@@ -1,23 +1,21 @@
+import {useContext} from "react";
 import {useAccount} from "wagmi";
 import nProgress from "nprogress";
 
 import Layout from "components/Layout";
 import {Flex, Text} from "components/primitives";
 import ProfileCard from 'components/profile/ProfileCard';
-import LoadingSpinner from '../components/common/LoadingSpinner';
+import LoadingSpinner from 'components/common/LoadingSpinner';
+import {ToastContext} from "context/ToastContextProvider";
+import FeatureItem from "components/home/FeatureItem";
 import {useFeatures, useProfile} from 'hooks';
-import {useContext, useState} from "react";
-import {ToastContext} from "../context/ToastContextProvider";
-import {LikwidFeature} from "../types/common";
-import FeatureItem from "../components/home/FeatureItem";
+import {LikwidFeature} from "types/common";
 
-const HomePage = () => {
+const Home = () => {
   const { address } = useAccount()
   const { data: profile, mutate, isLoading: isLoadingProfile } = useProfile(address)
   const { data: features, mutate: refetchFeatures, isLoading } = useFeatures()
   const { addToast } = useContext(ToastContext)
-
-  console.log('features', features)
 
   const handleFeatureEntry =  async (featureId: string) => {
     nProgress.start();
@@ -107,4 +105,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default Home
