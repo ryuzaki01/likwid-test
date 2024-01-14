@@ -17,17 +17,18 @@ The Likwid Test project is developed as part of the interview process for candid
 ### Frontend:
 
 - HTML, Typescript
-- React.js for building interactive UI components
-- Stitches for css in js
-- framer-motion for animation library
+- [React.js](https://react.dev/) for building interactive UI components
+- [Stitches]() for css in js
+- [Radix UI](https://www.radix-ui.com/) for UI Components primitives base
+- [Framer Motion](https://www.framer.com/motion/) for animation library
 
 ### Backend:
 
-- NextJS
-- MongoDB as the database for storing feature and task data
-- Upstash Redis as in memory storage, storing user task submission to prevent spam  
-- Discord API
-- Twitter API
+- [NextJS framework](https://nextjs.org/)
+- [MongoDB](https://www.mongodb.com/) as the database for storing feature and task data
+- [Upstash](https://upstash.com/) Redis as in memory storage, storing user task submission to prevent spam  
+- [Discord API](https://discord.com/developers/docs/intro) discord social account connection and task completion
+- [Twitter API](https://developer.twitter.com/en/docs/twitter-api) twitter social account connection and task completion
 
 -----
 
