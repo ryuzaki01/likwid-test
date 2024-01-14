@@ -1,5 +1,3 @@
-import { styled } from 'stitches.config'
-import Flex from 'components/primitives/Flex'
 import {
   ComponentPropsWithoutRef,
   ElementRef,
@@ -7,6 +5,9 @@ import {
   ReactNode,
 } from 'react'
 import { CSS } from '@stitches/react'
+
+import { styled } from 'stitches.config'
+import Flex from './Flex'
 
 const StyledTextArea = styled('textarea', {
   all: 'unset',

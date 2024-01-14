@@ -1,7 +1,8 @@
-import { Text } from 'components/primitives'
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react'
-import {CSS} from "@stitches/react";
 import { ReactComponentLike } from 'prop-types';
+import { CSS } from "@stitches/react";
+
+import { Text } from 'components/primitives'
 
 type NavItemProps = {
   active?: boolean

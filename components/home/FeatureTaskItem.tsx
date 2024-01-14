@@ -1,9 +1,10 @@
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import ReactMarkdown from 'react-markdown';
 import {faCircleCheck, faCancel, faQuestionCircle, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
-import {Flex, Tooltip, Box} from "components/primitives";
+
+import {Flex, Tooltip} from "components/primitives";
 import LinkRenderer from "components/common/LinkRenderer";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {FeatureTask} from "../../types/common";
+import {FeatureTask} from "types/common";
 
 const CheckRequirementIcon = ({ passed, withCheck } : { passed: boolean, withCheck: boolean }) => {
   return withCheck ? (passed ? (

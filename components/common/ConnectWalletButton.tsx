@@ -1,8 +1,7 @@
 import { FC } from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
-import Box from 'components/primitives/Box'
-import Button from 'components/primitives/Button'
+import { Box, Button } from 'components/primitives'
 
 type Props = {}
 

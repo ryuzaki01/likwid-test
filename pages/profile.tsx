@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import {useSession} from "next-auth/react";
 import {signIn} from "next-auth/react";
 import {useSignMessage} from "wagmi"
@@ -19,9 +19,9 @@ import {authOptions} from "./api/auth/[...nextauth]";
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
-const PortfolioSettings : NextPage<Props> = ({ ssr }) => {
-  const { data: session, update } = useSession()
-  const { data: signMessageData, error, isLoading: isLoadingSignature, signMessage, variables } = useSignMessage()
+const PortfolioSettings: NextPage<Props> = ({ssr}) => {
+  const {data: session, update} = useSession()
+  const {data: signMessageData, error, isLoading: isLoadingSignature, signMessage, variables} = useSignMessage()
 
   const {
     data: profile,
@@ -44,7 +44,7 @@ const PortfolioSettings : NextPage<Props> = ({ ssr }) => {
           signature: signMessageData,
         })
 
-        await signIn('credentials', { redirect: false, wallet: recoveredAddress } );
+        await signIn('credentials', {redirect: false, wallet: recoveredAddress});
         await update();
       }
     })()
@@ -52,15 +52,15 @@ const PortfolioSettings : NextPage<Props> = ({ ssr }) => {
 
   useEffect(() => {
     if (!session) {
-      signMessage({ message: 'Likwid wants you to sign in with your Ethereum account' })
+      signMessage({message: 'Likwid wants you to sign in with your Ethereum account'})
     }
   }, [session])
 
   if (isLoadingSignature || isLoadingSignature) {
     return (
       <Layout>
-        <Flex align="center" justify="center" css={{ py: '40vh' }}>
-          <LoadingSpinner />
+        <Flex align="center" justify="center" css={{py: '40vh'}}>
+          <LoadingSpinner/>
         </Flex>
       </Layout>
     )
@@ -69,10 +69,10 @@ const PortfolioSettings : NextPage<Props> = ({ ssr }) => {
   if (!profile) {
     return (
       <Layout>
-        <Flex direction="column" align="center" justify="center" css={{ py: '40vh', gap: 20 }}>
+        <Flex direction="column" align="center" justify="center" css={{py: '40vh', gap: 20}}>
           <Text>Sign this message to prove your ownership of this wallet </Text>
           <Button onClick={() => {
-            signMessage({ message: 'Likwid wants you to sign in with your Ethereum account' })
+            signMessage({message: 'Likwid wants you to sign in with your Ethereum account'})
           }}>Sign</Button>
         </Flex>
       </Layout>
@@ -101,7 +101,7 @@ export const getServerSideProps: GetServerSideProps<{
   ssr: {
     profile?: any
   }
-}> = async ({ req, res }) => {
+}> = async ({req, res}) => {
   const session: any = await getServerSession(
     req,
     res,
@@ -113,7 +113,7 @@ export const getServerSideProps: GetServerSideProps<{
     .catch(() => null) : null
 
   return {
-    props: { ssr: { profile } }
+    props: {ssr: {profile}}
   }
 }
 

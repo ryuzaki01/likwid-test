@@ -1,13 +1,14 @@
 import { useState, useEffect, FC, SyntheticEvent, useContext } from 'react'
 import { useDropzone, FileError } from 'react-dropzone';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiscord, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import { useAccount } from "wagmi";
+
 import { Text, Flex, Box, Input, Button, TextArea } from 'components/primitives'
 import { StyledInput } from "components/primitives/Input";
+import { useDebounce, useMounted, useProfileCheck } from "hooks";
 import { ToastContext } from 'context/ToastContextProvider'
-import {useDebounce, useMounted, useProfileCheck} from "hooks";
-import {useAccount} from "wagmi";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faDiscord, faTwitter} from "@fortawesome/free-brands-svg-icons";
-import {resizeImage} from "../../utils/image";
+import { resizeImage } from "utils/image";
 
 type Props = {
   profile: ReturnType<typeof useProfileCheck>["data"]

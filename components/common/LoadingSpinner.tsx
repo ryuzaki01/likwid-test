@@ -1,8 +1,8 @@
-import { keyframes } from '@stitches/react'
-import Image from 'next/image'
-import { Box } from 'components/primitives'
-import { CSS } from '@stitches/react'
 import { FC } from 'react'
+import { keyframes, CSS } from '@stitches/react'
+import Image from 'next/image'
+
+import { Box } from 'components/primitives'
 
 export const spin = keyframes({
   '0%': { transform: 'rotate(0deg)' },

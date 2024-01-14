@@ -1,7 +1,8 @@
-import { Box, Text, Tooltip } from 'components/primitives'
 import { FC, ReactNode, useState } from 'react'
 import { CSS } from '@stitches/react'
 import { useCopyToClipboard } from 'usehooks-ts'
+
+import { Box, Text, Tooltip } from 'components/primitives'
 
 type Props = {
   children: ReactNode

@@ -1,10 +1,11 @@
 import { FC, ReactNode } from 'react'
-import { Content, Overlay } from 'components/primitives/Dialog'
 import {
   Root as DialogRoot,
   DialogTrigger,
   DialogPortal,
 } from '@radix-ui/react-dialog'
+
+import { Content } from 'components/primitives/Dialog'
 
 type Props = {
   trigger: ReactNode

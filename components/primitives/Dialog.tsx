@@ -1,5 +1,3 @@
-import { styled } from '@stitches/react'
-import * as DialogPrimitive from '@radix-ui/react-dialog'
 import {
   ComponentPropsWithoutRef,
   ElementRef,
@@ -7,6 +5,8 @@ import {
   ReactNode,
   useState,
 } from 'react'
+import { styled } from '@stitches/react'
+import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const Overlay = styled(DialogPrimitive.Overlay, {

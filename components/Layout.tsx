@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react'
-import { Box, Flex } from 'components/primitives';
+
+import { Box } from 'components/primitives';
 import Navbar from './navbar'
 import { Footer } from './Footer';
 

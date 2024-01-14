@@ -1,7 +1,8 @@
-import { Flex, AnimatedFlex, Text } from '../primitives'
 import React, {ComponentPropsWithoutRef, FC, ReactNode, useRef} from 'react'
 import {CSS} from "@stitches/react";
 import {useInView} from "framer-motion";
+
+import { Flex, AnimatedFlex, Text } from '../primitives'
 
 type Props = {
   value: number

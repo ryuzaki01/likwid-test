@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useMediaQuery } from 'react-responsive'
 import { useAccount } from 'wagmi'

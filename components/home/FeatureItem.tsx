@@ -1,15 +1,15 @@
 import {FC, useState} from "react";
+import {useAccount} from "wagmi";
 import {useMediaQuery} from "react-responsive";
-
-import {Box, Flex, Button, Text} from "components/primitives";
-import {useMounted} from "hooks";
-import {LikwidFeature} from "types/common";
 import {faCircleCheck} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import FeatureTaskItem from "./FeatureTaskItem";
-import {useAccount} from "wagmi";
+
+import {Box, Flex, Button, Text} from "components/primitives";
 import LoadingSpinner from "../common/LoadingSpinner";
-import {formatNumber} from "../../utils/numbers";
+import FeatureTaskItem from "./FeatureTaskItem";
+import {useMounted} from "hooks";
+import {formatNumber} from "utils/numbers";
+import {LikwidFeature} from "types/common";
 
 type FeatureItemProps = {
   data: LikwidFeature

@@ -1,11 +1,11 @@
-import { styled } from 'stitches.config'
-import React, {
+import {
   ComponentPropsWithoutRef,
   ElementRef,
   forwardRef,
   ReactNode,
   useState,
 } from 'react'
+import { styled } from 'stitches.config'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { AnimatePresence, motion } from 'framer-motion'
 

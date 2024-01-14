@@ -1,10 +1,11 @@
 import { FC, ReactNode, useContext } from 'react'
 import { keyframes, styled } from '@stitches/react'
 import * as ToastPrimitive from '@radix-ui/react-toast'
-import { ToastContext } from 'context/ToastContextProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Box from './Box'
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+
+import { ToastContext } from 'context/ToastContextProvider'
+import Box from './Box'
 import Flex from './Flex'
 
 const VIEWPORT_PADDING = 25

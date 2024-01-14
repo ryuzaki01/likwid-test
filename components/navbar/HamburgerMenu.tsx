@@ -9,7 +9,7 @@ import {useAccount, useDisconnect} from "wagmi";
 import Link from 'next/link'
 import Image from "next/image"
 
-import {Box, Button, Avatar, Flex, Text} from '../primitives'
+import {Box, Button, Flex, Text} from '../primitives'
 import ConnectWalletButton from '../common/ConnectWalletButton'
 import {FullscreenModal} from './FullscreenModal'
 import {useENSResolver, useProfile} from 'hooks'

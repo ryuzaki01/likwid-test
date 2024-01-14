@@ -1,11 +1,10 @@
-import { Avatar, Flex, Text } from '../primitives';
+import { Avatar, Flex, Text, Skeleton } from '../primitives';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { faXTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useMounted } from '../../hooks';
+import { useMounted } from 'hooks';
 import { useMediaQuery } from 'react-responsive';
-import Skeleton from '../primitives/Skeleton';
-import {truncateAddress, truncateStr} from "../../utils/truncate";
+import {truncateAddress, truncateStr} from "utils/truncate";
 import Link from "next/link";
 
 export type Profile = {
