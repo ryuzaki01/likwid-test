@@ -297,11 +297,14 @@ const ProfileDetail:FC<Props> = ({ profile }) => {
               align="center"
               justify="between"
             >
-              <Text>
-                <FontAwesomeIcon icon={faTwitter} width={16} height={16} style={{ marginRight: 10, display: 'inline-block' }} />
-                {`Twitter`}
-              </Text>
-              <Button as="a" color="secondary" href={`/api/social/twitter?wallet=${address}`} size="xs" css={{ justifyContent: 'center'}}>
+              <Flex
+                align="center"
+                css={{ gap: 10 }}
+              >
+                <FontAwesomeIcon icon={faTwitter} width={30} height={30} />
+                <Text boldest>{`Twitter`}</Text>
+              </Flex>
+              <Button as="a" color="tertiary" href={`/api/social/twitter?wallet=${address}`} size="xs" css={{ justifyContent: 'center'}}>
                 {!profile?.twitter_id ? 'Connect' : 'Re-Connect'}
               </Button>
             </Flex>
@@ -309,11 +312,14 @@ const ProfileDetail:FC<Props> = ({ profile }) => {
               align="center"
               justify="between"
             >
-              <Text>
-                <FontAwesomeIcon icon={faDiscord} width={30} height={30} style={{ marginRight: 10, display: 'inline-block' }} />
-                {`Discord`}
-              </Text>
-              <Button as="a" color="secondary" href={`/api/social/discord?wallet=${address}`} size="xs">
+              <Flex
+                align="center"
+                css={{ gap: 10 }}
+              >
+                <FontAwesomeIcon icon={faDiscord} width={30} height={30} />
+                <Text boldest>{`Discord`}</Text>
+              </Flex>
+              <Button as="a" color="tertiary" href={`/api/social/discord?wallet=${address}`} size="xs">
                 {!profile?.discord_id ? 'Connect' : 'Re-Connect'}
               </Button>
             </Flex>

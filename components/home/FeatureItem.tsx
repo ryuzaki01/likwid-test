@@ -65,7 +65,17 @@ const FeatureItem : FC<FeatureItemProps> = (props) => {
             <Text style={isMobile ? 'body1': 'h5'} boldest>
               {data.title}
             </Text>
-            <Text style={isMobile ? 'body1': 'h5'} boldest>
+            <Text
+              style={isMobile ? 'body1': 'h5'}
+              css={{
+                px: '$2',
+                py: '$1',
+                borderRadius: '$lg',
+                border: '1px solid $primary8',
+                backgroundColor: '$primary3'
+              }}
+              boldest
+            >
               {`Exp: ${formatNumber(data.exp)}`}
             </Text>
           </Flex>
