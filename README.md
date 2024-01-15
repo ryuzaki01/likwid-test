@@ -5,12 +5,13 @@ The Likwid Test project is developed as part of the interview process for candid
 - [Getting Started](#getting-started)
 - [Running Server](#running-server)
 
-##Features
+## Features
 - **Feature Exploration:** Browse through a diverse set of features presented as interactive cards.
 - **Task Assignment:** Each feature is associated with specific tasks that users can undertake.
 - **XP Earning:** Users earn Experience Points (XP) upon successful completion of tasks.
 - **User Avatar:** Users can customize their own avatar.
 - **Social Media Connections:** Users can connect their twitter & discord to link.
+- **User Retention:** reset the user's XP and task progress if inactive for a month.
 - **Responsive Design:** Ensure an intuitive and visually pleasing interface that adapts to different screen sizes.
 
 ## Technologies Used
