@@ -79,16 +79,15 @@ Open the .env file in a text editor of your choice and update the following vari
 Here is an example of how your .env.local file might look:
 ```dotenv
 # App
-NEXT_PUBLIC_HOST_URL=http://localhost:3000
-NEXT_PUBLIC_WALLET_CONNECT_ID=5dd18f61f54044c53f0e1ea9d1829b08
-
-# next-auth
 NEXTAUTH_URL=http://localhost:3000
 # to generate secret 'openssl rand -base64 32'
 NEXTAUTH_SECRET=JfRIvY4uhgOaTaWjcXETGYM7MpAyXooElqcTKuV8hfA=
 
+# Wallet Connect
+NEXT_PUBLIC_WALLET_CONNECT_ID=333ad34df80b6bf53d920eb962b9aab0
+
 # MongoDB -> https://www.mongodb.com/
-MONGODB_URI=mongodb+srv://your_username:your_password@your_cluster.mongodb.net/?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<user>:<pass>@...mongodb.net/?retryWrites=true&w=majority
 
 # Upstash Redis -> https://upstash.com/
 UPSTASH_REDIS_REST_TOKEN=

@@ -19,7 +19,7 @@ import {authOptions} from "./api/auth/[...nextauth]";
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
-const PortfolioSettings: NextPage<Props> = ({ssr}) => {
+const ProfileSettings: NextPage<Props> = ({ssr}) => {
   const {data: session, update} = useSession()
   const {data: signMessageData, error, isLoading: isLoadingSignature, signMessage, variables} = useSignMessage()
 
@@ -108,7 +108,7 @@ export const getServerSideProps: GetServerSideProps<{
     authOptions as AuthOptions
   )
 
-  const profile = session ? await fetch(`${process.env.NEXT_PUBLIC_HOST_URL}/api/profile?address=${session.wallet}`)
+  const profile = session ? await fetch(`${process.env.NEXTAUTH_URL}/api/profile?address=${session.wallet}`)
     .then(res => res.json())
     .catch(() => null) : null
 
@@ -117,4 +117,4 @@ export const getServerSideProps: GetServerSideProps<{
   }
 }
 
-export default PortfolioSettings
+export default ProfileSettings
