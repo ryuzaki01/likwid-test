@@ -1,39 +1,37 @@
 import type {NextApiRequest, NextApiResponse} from "next";
-import { Redis } from '@upstash/redis'
 import db from "lib/db";
 
-const redis = Redis.fromEnv()
 const account = db.collection('account')
+const featureEntry = db.collection('feature_entry')
 
-const rankResetHandler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const apiKey = req.headers['x-api-key']
-  if (!apiKey || apiKey !== process.env.ORDERBOOK_API_KEY) {
-    res.status(405).send({message: 'Invalid api key'})
-    return
-  }
+// Will run daily at midnight
+const expResetHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+  const expireDateLimit = ((new Date()).getTime() / 1000) - (60 * 60 * 24 * 30) // 1 Month
 
-  redis.keys('list:*').then(rows => {
-    for (const row of rows) {
-      redis.del(row)
+  const expiredUsers = await account.find({
+    lastLogin: { $lt: expireDateLimit },
+    lastActivity: { $lt: expireDateLimit },
+  }).toArray()
+
+  // Reset Exp
+  await account.updateMany({
+    _id: {
+      $in: (expiredUsers || []).map(user => user._id)
     }
-  });
-
-  redis.keys('offer:*').then(rows => {
-    for (const row of rows) {
-      redis.del(row)
+  }, {
+    $set: {
+      exp: 0
     }
-  });
+  })
 
-  await account.updateMany({}, [
-    {
-      $set: {
-        offerExp: 0,
-        listingExp: 0
-      }
+  // Reset Tasks Progress
+  await featureEntry.deleteMany({
+    account_id: {
+      $in: (expiredUsers || []).map(user => user._id.toString())
     }
-  ])
+  })
 
   return res.status(200).end('Success');
 }
 
-export default rankResetHandler;
+export default expResetHandler;

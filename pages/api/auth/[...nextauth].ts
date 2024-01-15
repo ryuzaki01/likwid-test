@@ -22,15 +22,27 @@ export const authOptions: NextAuthOptions = {
         }
 
         return new Promise(async (resolve, reject) => {
-          const userData = await user.findOne({
+          let userData = await user.findOne({
             wallet: credentials?.wallet
           })
 
           if (!userData) {
-            await user.insertOne({
+            const record = await user.insertOne({
               wallet: credentials?.wallet
             })
+
+            userData = {
+              _id: record.insertedId,
+            }
           }
+
+          user.updateOne({
+            _id: userData._id
+          }, {
+            $set: {
+              lastLogin: (new Date()).getTime() / 1000
+            }
+          })
 
           resolve({
             id: credentials?.wallet || '',
@@ -46,7 +58,18 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async session({ session, token }) {
       session.wallet = token.sub
-      session.expires
+
+      if (session.wallet) {
+        // Dont wait for function to complete
+        user.updateOne({
+          wallet: session.wallet
+        }, {
+          $set: {
+            lastActivity: (new Date()).getTime() / 1000
+          }
+        })
+      }
+
       return session
     },
   },

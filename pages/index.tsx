@@ -1,5 +1,5 @@
-import {useContext} from "react";
-import {useAccount} from "wagmi";
+import {useContext, useEffect} from "react";
+import {useAccount, useSignMessage} from "wagmi";
 import nProgress from "nprogress";
 
 import Layout from "components/Layout";
@@ -10,20 +10,44 @@ import {ToastContext} from "context/ToastContextProvider";
 import FeatureItem from "components/home/FeatureItem";
 import {useFeatures, useProfile} from 'hooks';
 import {LikwidFeature} from "types/common";
+import {recoverMessageAddress} from "viem";
+import {signIn, useSession} from "next-auth/react";
 
 const Home = () => {
   const { address } = useAccount()
   const { data: profile, mutate, isLoading: isLoadingProfile } = useProfile(address)
   const { data: features, mutate: refetchFeatures, isLoading } = useFeatures()
+  const {data: signMessageData, error, isLoading: isLoadingSignature, signMessage, variables} = useSignMessage()
+  const {data: session, update} = useSession()
   const { addToast } = useContext(ToastContext)
+
+  useEffect(() => {
+    (async () => {
+      if (variables?.message && signMessageData) {
+        const recoveredAddress = await recoverMessageAddress({
+          message: variables?.message,
+          signature: signMessageData,
+        })
+
+        await signIn('credentials', {redirect: false, wallet: recoveredAddress});
+        await update();
+      }
+    })()
+  }, [signMessageData, variables?.message])
 
   const handleFeatureEntry =  async (featureId: string) => {
     nProgress.start();
+
+    if (!session?.wallet) {
+      signMessage({message: 'Likwid wants you to sign in with your Ethereum account'})
+      return;
+    }
+
     const response = await fetch('/api/feature/entry', {
       method: "POST",
       body: JSON.stringify({
         featureId: featureId,
-        wallet: address
+        wallet: session?.wallet
       })
     }).then(res => res.json())
       .catch(e => {
@@ -87,18 +111,17 @@ const Home = () => {
           <Flex css={{ gap: 12 }} align="center">
             <Text style="h5" boldest>Features</Text>
           </Flex>
-          {(features || []).map((f: LikwidFeature, i: number) => (
+          {(isLoading || isLoadingSignature) ? (
+            <Flex justify="center" align="center" css={{ minHeight: 300 }}>
+              <LoadingSpinner />
+            </Flex>
+          ) : (features || []).map((f: LikwidFeature, i: number) => (
             <FeatureItem
               key={`raffle-${i}`}
               onFeatureEntry={handleFeatureEntry}
               data={f}
             />
           ))}
-          {isLoading && (
-            <Flex justify="center" align="center" css={{ minHeight: 300 }}>
-              <LoadingSpinner />
-            </Flex>
-          )}
         </Flex>
       </Flex>
     </Layout>
